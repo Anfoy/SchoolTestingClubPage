@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OC Testing Information Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <span>O</span><span>C</span> <span>T</span><span>e</span><span>s</span
+      ><span>t</span><span>i</span><span>n</span><span>g</span> <span>P</span
+      ><span>r</span><span>e</span><span>p</span>
+    </header>
+    <div class="subheader">
+      <a href="https://www.remind.com/join" target="_blank"
+        >Join Our Remind! you can find our code throughout the school!</a
+      >
+    </div>
+    <div class="outer-box">
+      <div class="container">
+        <div class="box" id="ap-practice" onclick="showList('ap')">
+          AP Information
+        </div>
+        <div class="box" id="sat-practice" onclick="showList('sat')">
+          SAT Information
+        </div>
+        <div class="box" id="general-info" onclick="showList('general')">
+          General Information
+        </div>
+      </div>
+    </div>
+
+    <div class="list-container" id="list-container"></div>
+    <div class="content-container" id="content-container">
+      <h2 id="content-title"></h2>
+      <div id="exam-date-container">
+        <label for="exam-date">Exam Date:</label>
+        <span id="exam-date"></span>
+      </div>
+      <div class="content-grid">
+        <div class="content-left">
+          <div class="description-box" id="description-box">
+            <p id="content-description"></p>
+          </div>
+          <div class="teacher-box" id="teacher-box">
+            <p id="teacher-name"></p>
+            <p id="teacher-note" class="italic"></p>
+          </div>
+        </div>
+        <div class="content-right" id="links"></div>
+      </div>
+    </div>
+
+    <div id="links"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
