@@ -27,15 +27,15 @@ const data = {
              examDate: "May 7th 2025 @ 8 AM"
         },
         {
-            title: "AP Us History",
+            title: "AP US History",
             teacher: "Grimley / Chojnacki",
             teacherNote: "Grimley email: egrimley@ocsdnj.org  | Chojnacki email: bchojnacki@ocsdnj.org",
             description: "Study the cultural, economic, political, and social developments that have shaped the United States from c. 1491 to the present. You’ll analyze texts, visual sources, and other historical evidence and write essays expressing historical arguments.",
             links: [
                 { url: "https://apstudents.collegeboard.org/courses/ap-united-states-history", linkText: "AP United States History" },
                 { url: "https://apstudents.collegeboard.org/courses/ap-united-states-history/assessment", linkText: "AP United States History Assessment" },
-                {url: "https://drive.google.com/drive/u/2/folders/1-mJIx5_bMIrx9RVWuNh4XFrOrCWlS0c0", linkText: "Summer Work for Us History 1"},
-                {url: "https://drive.google.com/drive/u/2/folders/1r2Lk5ITkQZKVS0aBihFnqKd7N6UlyrqJ", linkText: "Summer Work for Us History 2"},
+                {url: "https://drive.google.com/drive/u/2/folders/1-mJIx5_bMIrx9RVWuNh4XFrOrCWlS0c0", linkText: "Summer Work for US History 1"},
+                {url: "https://drive.google.com/drive/u/2/folders/1r2Lk5ITkQZKVS0aBihFnqKd7N6UlyrqJ", linkText: "Summer Work for US History 2"},
                 { url: "https://apcentral.collegeboard.org/courses/ap-united-states-history/exam/past-exam-questions", linkText: "Past Exam Questions" }
             ],
              examDate: "May 9th 2025 @ 8 AM"
@@ -353,6 +353,60 @@ const data = {
     ]
 };
 
+function showContent(category, index) {
+    const listContainer = document.getElementById('list-container');
+    const contentContainer = document.getElementById('content-container');
+    const contentTitle = document.getElementById('content-title');
+    const contentDescription = document.getElementById('content-description');
+    const teacherBox = document.getElementById('teacher-box');
+    const teacherName = document.getElementById('teacher-name');
+    const teacherNote = document.getElementById('teacher-note');
+    const linksContainer = document.getElementById('links');
+    const examDateContainer = document.getElementById('exam-date-container');
+    const examDateElement = document.getElementById('exam-date');
+
+    listContainer.classList.remove('fade-in');
+    listContainer.classList.add('fade-out');
+
+    setTimeout(() => {
+        listContainer.style.display = 'none';
+        contentTitle.textContent = data[category][index].title;
+        contentDescription.textContent = data[category][index].description;
+        
+        // Show or hide the teacher box based on category
+        if (category === 'ap') {
+            teacherBox.style.display = 'block';
+            teacherName.textContent = "Teacher: " + data[category][index].teacher;
+            teacherNote.textContent = data[category][index].teacherNote || '';
+        } else {
+            teacherBox.style.display = 'none';
+        }
+
+        // Show the exam date if it exists
+        if (data[category][index].examDate) {
+            examDateContainer.style.display = 'flex';
+            examDateElement.textContent = data[category][index].examDate;
+        } else {
+            examDateContainer.style.display = 'none';
+        }
+
+        // Clear previous links
+        linksContainer.innerHTML = '';
+        data[category][index].links.forEach(link => {
+            const linkElement = document.createElement('a');
+            linkElement.href = link.url;
+            linkElement.textContent = link.linkText;
+            linkElement.target = '_blank';
+            linkElement.className = 'description-link';
+            linksContainer.appendChild(linkElement);
+        });
+
+        contentContainer.style.display = 'flex';
+        contentContainer.classList.remove('fade-out');
+        contentContainer.classList.add('fade-in');
+    }, 500); // Match this duration with the CSS transition duration
+}
+
 function showList(category) {
     const listContainer = document.getElementById('list-container');
     const contentContainer = document.getElementById('content-container');
@@ -366,6 +420,7 @@ function showList(category) {
 
         setTimeout(() => {
             updateList(category, listContainer);
+            contentContainer.style.display = 'none'; // Hide content container when showing list
         }, 500); // Match this duration with the CSS transition duration
     } else {
         updateList(category, listContainer);
@@ -400,53 +455,7 @@ function updateList(category, listContainer) {
 }
 
 
-function showContent(category, index) {
-    const listContainer = document.getElementById('list-container');
-    const contentContainer = document.getElementById('content-container');
-    const contentTitle = document.getElementById('content-title');
-    const contentDescription = document.getElementById('content-description');
-    const teacherBox = document.getElementById('teacher-box');
-    const teacherName = document.getElementById('teacher-name');
-    const teacherNote = document.getElementById('teacher-note');
-    const linksContainer = document.getElementById('links');
-    const examDateElement = document.getElementById('exam-date');
 
-    listContainer.classList.remove('fade-in');
-    listContainer.classList.add('fade-out');
-
-    setTimeout(() => {
-        listContainer.style.display = 'none';
-        contentTitle.textContent = data[category][index].title;
-        contentDescription.textContent = data[category][index].description;
-        
-        // Show or hide the teacher box based on category
-        if (category === 'ap') {
-            teacherBox.style.display = 'block';
-            teacherName.textContent = "Teacher: " + data[category][index].teacher;
-            teacherNote.textContent = data[category][index].teacherNote || '';
-        } else {
-            teacherBox.style.display = 'none';
-        }
-
-        // Set the exam date text
-        examDateElement.textContent = data[category][index].examDate || 'N/A';
-
-        // Clear previous links
-        linksContainer.innerHTML = '';
-        data[category][index].links.forEach(link => {
-            const linkElement = document.createElement('a');
-            linkElement.href = link.url;
-            linkElement.textContent = link.linkText;
-            linkElement.target = '_blank';
-            linkElement.className = 'description-link';
-            linksContainer.appendChild(linkElement);
-        });
-
-        contentContainer.style.display = 'flex';
-        contentContainer.classList.remove('fade-out');
-        contentContainer.classList.add('fade-in');
-    }, 500); // Match this duration with the CSS transition duration
-}
 
 
 

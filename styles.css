@@ -1,3 +1,5 @@
+
+/*Body of the website */
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -9,15 +11,17 @@ body {
     color: #fff;
     min-height: 100vh; /* Full viewport height */
 }
+/*OC Testing Prep Text */
 
 header {
-    font-size: 5.1vw; /* Responsive font size */
+    font-size: 5vw; /* Scales with viewport width */
     font-weight: bold;
-    margin-bottom: 2vw; /* Margin set with viewport width */
+    margin-bottom: 2vw;
     text-align: center;
     width: 100%;
 }
 
+/*Manage animation for OC testing prep Text */
 header span {
     display: inline-block;
     animation: colorWave 3.95s infinite;
@@ -27,11 +31,13 @@ header span {
     -webkit-text-fill-color: transparent;
 }
 
+/*Color wave for Oc Testing prep Text */
 @keyframes colorWave {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
+/*Header Spans for each individual letter */
 header span:nth-child(1) { animation-delay: 0s; }
 header span:nth-child(2) { animation-delay: 0.1s; }
 header span:nth-child(3) { animation-delay: 0.2s; }
@@ -47,23 +53,28 @@ header span:nth-child(12) { animation-delay: 1.1s; }
 header span:nth-child(13) { animation-delay: 1.2s; }
 header span:nth-child(14) { animation-delay: 1.3s; }
 
+/*Box behind the main boxes("Ap information, SAT Information etc...) */
 .outer-box {
     background-color: #444;
-    padding: 1.8vw; /* Padding proportional to viewport width */
+    padding: 1.8vw;
     border-radius: 1vw;
     box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1), 0 0.6vw 2vw rgba(0, 0, 0, 0.1);
     margin-bottom: 2vw;
     margin-top: 2vw;
-    width: 70%; /* Responsive width */
-    max-width: 60vw; /* Maximum width to ensure it scales */
+    width: 90%; /* Changed to 90% to make it more responsive */
+    height: 70%;
+    max-width: 1200px; /* Ensures it doesn't get too wide on large screens */
 }
 
+/*Box that holds all the main boxes. Should be used to manage all boxes at once*/
 .container {
     display: flex;
-    gap: 2vw; /* Gap using viewport width */
     flex-wrap: wrap;
+    justify-content: center; /* Center the items */
+    gap: 2vw; 
 }
 
+/*Join Remind Text */
 .subheader {
     font-size: 2vw;
     margin-bottom: 10px;
@@ -72,19 +83,23 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     font-weight: bold;
 }
 
+/*Link color + color change handling */
 .subheader a {
     color: #ff7373;
     text-decoration: none;
     transition: color 0.3s;
 }
 
+/*When hover over link happens */
 .subheader a:hover {
     color: #add8e6;
 }
 
+/*Background of main boxes */
 .box {
-    flex: 1 1 18vw; /* Base size of the box using viewport width */
-    height: 6.5vw; /* Height proportional to the viewport width */
+    flex: 1 1 18vw; 
+    min-width: 200px; /* Ensure it doesn't get too small */
+    height: 6.5vw; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,12 +108,14 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    font-size: 1.8vw; /* Responsive font size */
+    font-size: 1.8vw; 
     border-radius: 1vw;
-    box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1vw 1vw rgba(0, 0, 0, 0.1);
     color: #000;
     font-weight: bold;
 }
+
+/*Hovering over main Boxes */
 
 .box:hover {
     background-color: #c0c0c0;
@@ -106,11 +123,12 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     animation: breathe 3s infinite;
 }
 
+/*Up and down movement of main boxes when hovered */
 @keyframes breathe {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
-
+/*Title of AP Class when you click on its box from List */
 #content-title {
     font-size: 32px;
     margin-bottom: 20px;
@@ -118,11 +136,13 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     text-shadow: 2px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+/*Color wave over all the list of aps */
 @keyframes titleWaveEffect {
     0%, 100% { color: #fff; }
     50% { color: #d8c733; }
 }
 
+/*Container that displays when you click on an ap class */
 .content-container {
     display: none;
     flex-direction: column;
@@ -134,6 +154,16 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     max-width: 800px;
 }
 
+/*Some Material requires school email text */
+.standalone-text {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    color: #fff; /* Adjust this color if needed */
+}
+
+/*Grid of AP Class information */
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -145,6 +175,7 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+/*Left and right of Infoboxz*/
 .content-left,
 .content-right {
     display: flex;
@@ -152,6 +183,7 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     align-items: center;
 }
 
+/*Description of AP, SAT, whatever you want when you click its appropriate box from list */
 .description-box {
     background-color: #555;
     color: #fff;
@@ -166,6 +198,8 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     transition: transform 0.3s, box-shadow 0.3s;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
 } 
+/*Teacher box right below description box */
+
 .teacher-box {
     display: none; /* Hidden by default, will be shown if necessary */
     background-color: #555;
@@ -182,12 +216,14 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
 }
 
+/*Hover of description of teacher box*/
 .description-box:hover,
 .teacher-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
+/*Links in Info Box */
 .description-link {
     display: block;
     margin: 10px 0;
@@ -198,17 +234,20 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     font-size: 16px;
     transition: color 0.3s, transform 0.3s;
     text-align: center;
+    text-decoration: solid;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
 }
 
+/*Links when hovered*/
 .description-link:hover {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
+/*Generic adjustments to all links in info box */
 #links {
     display: flex;
     flex-direction: column;
@@ -216,14 +255,14 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     justify-content: center;
     width: 100%;
 }
-
+/*Container of exam date text */
 #exam-date-container {
     margin-bottom: 20px;
-    display: flex;
+    display: none; /*Hidden until Need */
     align-items: center;
     justify-content: center;
 }
-
+/*What the exam Date text will always have in terms of text ("Exam Date: )" for example*/
 #exam-date-container label {
     margin-right: 10px;
     font-size: 18px;
@@ -231,6 +270,7 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     color: #fff;
 }
 
+/*What when you type in JS File will look like */
 #exam-date {
     font-size: 18px;
     font-style: italic;
@@ -238,16 +278,19 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
 }
 
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s;
-}
 
+/*Fade in and out of container and list of aps/sat/general info */
 .fade-in {
     opacity: 1;
     transition: opacity 0.5s;
 }
 
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/*List container of aps/sat/general info */
 .list-container {
     display: none;
     margin-top: 20px;
@@ -257,6 +300,14 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     width: 100%;
 }
 
+/*List of aps/sat/general info and their container */
+.list-container,
+.content-container {
+    display: none;
+    transition: opacity 0.5s;
+}
+
+/*How each item in the list of ap/sat/general info will look like and be handled */
 .list-item {
     background-color: #444; /* Match the background color of the boxes */
     color: #fff; /* White text color */
@@ -275,11 +326,13 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     animation: listColorChange 5s infinite; /* Add animation */
 }
 
+/*When hovering over an item in list of ap/sat/general info */
 .list-item:hover {
     background-color: #555; 
     transform: translateY(-2px) scale(1.05); /* Lift and scale effect on hover */
 }
 
+/*Color wave for list of ap/sat/general info */
 @keyframes listColorChange {
     0%, 100% { color: #fff; }
     50% { color: gold; } /* Color change to match the theme */
@@ -300,14 +353,7 @@ header span:nth-child(14) { animation-delay: 1.3s; }
 .list-item:nth-child(13) { animation-delay: 1.2s; }
 .list-item:nth-child(14) { animation-delay: 1.3s; }
 
-.standalone-text {
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 18px;
-    font-style: italic;
-    color: #fff; /* Adjust this color if needed */
-}
-
+/*Teacher email */
 .italic {
     font-style: italic;
     font-size: 16px;
@@ -315,3 +361,78 @@ header span:nth-child(14) { animation-delay: 1.3s; }
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
 }
 
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    header {
+        font-size: 10vw; /* Increase font size for smaller screens */
+    }
+    .subheader {
+        font-size: 3.8vw;
+    }
+    .box {
+        height: 8vw; /* Increase box height for smaller screens */
+        font-size: 3vw; /* Adjust font size for smaller screens */
+    }
+    .outer-box {
+        width: 60%; /* Increase width to take more space */
+    }
+    .container {
+        gap: 4vw; /* Increase gap between boxes */
+    }
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .content-container {
+        max-width: 100%; /* Ensure the container takes full width */
+        padding: 10px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack items vertically */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .description-box {
+        font-size: 14px; /* Reduce font size */
+        padding: 10px;
+        width: 100%; /* Take full width */
+    }
+
+    .teacher-box {
+        font-size: 14px; /* Reduce font size */
+        padding: 10px;
+        width: 100%; /* Take full width */
+    }
+}
+
+/* Media queries for very small screens */
+@media (max-width: 480px) {
+    .content-container {
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .description-box {
+        font-size: 12px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .teacher-box {
+        font-size: 12px;
+        padding: 5px;
+        width: 100%;
+    }
+    .italic{
+        font-size: 15px;
+    }
+}
